@@ -1,0 +1,382 @@
+﻿<!--
+  ChoseWay（千往）红黑赛博科技风 —— WPF 资源字典（WinUI 3 / Avalonia 可按注释微调语法）
+  用法：App.xaml → <Application.Resources><ResourceDictionary><ResourceDictionary.MergedDictionaries>
+          <ResourceDictionary Source="ChoseWayTheme.xaml"/></ResourceDictionary.MergedDictionaries></ResourceDictionary></Application.Resources>
+        Window：Background="{StaticResource CW.Brush.Bg}" FontFamily="{StaticResource CW.Font}"
+        面板：<Border Style="{StaticResource CW.Panel}">；按钮：Style="{StaticResource CW.Button.Primary}"
+  取值来源：tokens.json；降级规则见 PLATFORMS.md 第 3 节（无 backdrop 模糊 → 实底）。
+-->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <!-- ———— 字体 / 尺寸 ———— -->
+  <FontFamily x:Key="CW.Font">Segoe UI, Microsoft YaHei UI, PingFang SC, sans-serif</FontFamily>
+  <FontFamily x:Key="CW.Font.Num">Bahnschrift, DIN Alternate, Arial Narrow, Segoe UI</FontFamily>
+  <FontFamily x:Key="CW.Font.Mono">Consolas, monospace</FontFamily>
+  <CornerRadius x:Key="CW.Radius.XL">28</CornerRadius>
+  <CornerRadius x:Key="CW.Radius.LG">22</CornerRadius>
+  <CornerRadius x:Key="CW.Radius.MD">18</CornerRadius>
+  <CornerRadius x:Key="CW.Radius.Card">14</CornerRadius>
+  <CornerRadius x:Key="CW.Radius.SM">12</CornerRadius>
+  <CornerRadius x:Key="CW.Radius.Item">9</CornerRadius>
+  <CornerRadius x:Key="CW.Radius.Pill">19</CornerRadius>
+
+  <!-- ———— 颜色 ———— -->
+  <Color x:Key="CW.Color.Bg">#FF070707</Color>
+  <Color x:Key="CW.Color.PanelSolid">#F0121212</Color>
+  <Color x:Key="CW.Color.PanelSolid2">#F50E0E0E</Color>
+  <Color x:Key="CW.Color.PanelSoft">#09FFFFFF</Color>
+  <Color x:Key="CW.Color.Card">#0AFFFFFF</Color>
+  <Color x:Key="CW.Color.CardEnd">#05FFFFFF</Color>
+  <Color x:Key="CW.Color.CardHover">#12FFFFFF</Color>
+  <Color x:Key="CW.Color.Line">#17FFFFFF</Color>
+  <Color x:Key="CW.Color.LineSoft">#12FFFFFF</Color>
+  <Color x:Key="CW.Color.LineStrong">#29FFFFFF</Color>
+  <Color x:Key="CW.Color.InputBg">#33000000</Color>
+  <Color x:Key="CW.Color.Text">#FFF4EFE9</Color>
+  <Color x:Key="CW.Color.Muted">#FFB9AEA4</Color>
+  <Color x:Key="CW.Color.Faint">#6BFFFFFF</Color>
+  <Color x:Key="CW.Color.Eyebrow">#9EFFFFFF</Color>
+  <Color x:Key="CW.Color.Red">#FFD4121F</Color>
+  <Color x:Key="CW.Color.RedBright">#FFFF3748</Color>
+  <Color x:Key="CW.Color.RedDim">#24D4121F</Color>
+  <Color x:Key="CW.Color.RedFill">#29D4121F</Color>
+  <Color x:Key="CW.Color.RedBorder">#66FF525F</Color>
+  <Color x:Key="CW.Color.RedBorderSoft">#38FF525F</Color>
+  <Color x:Key="CW.Color.RedText">#FFFFB3BA</Color>
+  <Color x:Key="CW.Color.RedHalo">#29D4121F</Color>
+  <Color x:Key="CW.Color.Gold">#FFE8B54A</Color>
+  <Color x:Key="CW.Color.GoldText">#FFFFD98A</Color>
+  <Color x:Key="CW.Color.Warn">#FFD9A13B</Color>
+  <Color x:Key="CW.Color.Orange">#FFFF8C3B</Color>
+  <Color x:Key="CW.Color.Ok">#FF46C576</Color>
+  <Color x:Key="CW.Color.Link">#FF7FA0DC</Color>
+
+  <!-- ———— 画刷 ———— -->
+  <SolidColorBrush x:Key="CW.Brush.Bg" Color="{StaticResource CW.Color.Bg}"/>
+  <SolidColorBrush x:Key="CW.Brush.PanelSolid" Color="{StaticResource CW.Color.PanelSolid}"/>
+  <SolidColorBrush x:Key="CW.Brush.PanelSolid2" Color="{StaticResource CW.Color.PanelSolid2}"/>
+  <SolidColorBrush x:Key="CW.Brush.PanelSoft" Color="{StaticResource CW.Color.PanelSoft}"/>
+  <SolidColorBrush x:Key="CW.Brush.Card" Color="{StaticResource CW.Color.Card}"/>
+  <SolidColorBrush x:Key="CW.Brush.CardHover" Color="{StaticResource CW.Color.CardHover}"/>
+  <SolidColorBrush x:Key="CW.Brush.Line" Color="{StaticResource CW.Color.Line}"/>
+  <SolidColorBrush x:Key="CW.Brush.LineSoft" Color="{StaticResource CW.Color.LineSoft}"/>
+  <SolidColorBrush x:Key="CW.Brush.LineStrong" Color="{StaticResource CW.Color.LineStrong}"/>
+  <SolidColorBrush x:Key="CW.Brush.InputBg" Color="{StaticResource CW.Color.InputBg}"/>
+  <SolidColorBrush x:Key="CW.Brush.Text" Color="{StaticResource CW.Color.Text}"/>
+  <SolidColorBrush x:Key="CW.Brush.Muted" Color="{StaticResource CW.Color.Muted}"/>
+  <SolidColorBrush x:Key="CW.Brush.Faint" Color="{StaticResource CW.Color.Faint}"/>
+  <SolidColorBrush x:Key="CW.Brush.Eyebrow" Color="{StaticResource CW.Color.Eyebrow}"/>
+  <SolidColorBrush x:Key="CW.Brush.Red" Color="{StaticResource CW.Color.Red}"/>
+  <SolidColorBrush x:Key="CW.Brush.RedBright" Color="{StaticResource CW.Color.RedBright}"/>
+  <SolidColorBrush x:Key="CW.Brush.RedDim" Color="{StaticResource CW.Color.RedDim}"/>
+  <SolidColorBrush x:Key="CW.Brush.RedFill" Color="{StaticResource CW.Color.RedFill}"/>
+  <SolidColorBrush x:Key="CW.Brush.RedBorder" Color="{StaticResource CW.Color.RedBorder}"/>
+  <SolidColorBrush x:Key="CW.Brush.RedBorderSoft" Color="{StaticResource CW.Color.RedBorderSoft}"/>
+  <SolidColorBrush x:Key="CW.Brush.RedText" Color="{StaticResource CW.Color.RedText}"/>
+  <SolidColorBrush x:Key="CW.Brush.RedHalo" Color="{StaticResource CW.Color.RedHalo}"/>
+  <SolidColorBrush x:Key="CW.Brush.Gold" Color="{StaticResource CW.Color.Gold}"/>
+  <SolidColorBrush x:Key="CW.Brush.GoldText" Color="{StaticResource CW.Color.GoldText}"/>
+  <SolidColorBrush x:Key="CW.Brush.Warn" Color="{StaticResource CW.Color.Warn}"/>
+  <SolidColorBrush x:Key="CW.Brush.Orange" Color="{StaticResource CW.Color.Orange}"/>
+  <SolidColorBrush x:Key="CW.Brush.Ok" Color="{StaticResource CW.Color.Ok}"/>
+  <SolidColorBrush x:Key="CW.Brush.Link" Color="{StaticResource CW.Color.Link}"/>
+  <SolidColorBrush x:Key="CW.Brush.White" Color="#FFFFFFFF"/>
+
+  <!-- 红渐变（主按钮 / Logo / 头像兜底） -->
+  <LinearGradientBrush x:Key="CW.Brush.RedGradient" StartPoint="0,0" EndPoint="1,1">
+    <GradientStop Color="#FFD4121F" Offset="0"/><GradientStop Color="#FFFF3748" Offset="1"/>
+  </LinearGradientBrush>
+  <!-- 玻璃面板：白 4% → 1.8% 竖向渐变（叠在近黑底上） -->
+  <LinearGradientBrush x:Key="CW.Brush.Glass" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Color="#0AFFFFFF" Offset="0"/><GradientStop Color="#05FFFFFF" Offset="1"/>
+  </LinearGradientBrush>
+  <!-- 导航激活态 -->
+  <LinearGradientBrush x:Key="CW.Brush.NavActive" StartPoint="0,0" EndPoint="1,1">
+    <GradientStop Color="#47D4121F" Offset="0"/><GradientStop Color="#0FFFFFFF" Offset="1"/>
+  </LinearGradientBrush>
+  <!-- 图标块 -->
+  <LinearGradientBrush x:Key="CW.Brush.IconBox" StartPoint="0,0" EndPoint="1,1">
+    <GradientStop Color="#3DD4121F" Offset="0"/><GradientStop Color="#0DFFFFFF" Offset="1"/>
+  </LinearGradientBrush>
+  <!-- 窗口背景：竖向深灰 + 左上红晕 + 右上白晕（三层用 Grid 叠 Rectangle，或直接用本 DrawingBrush） -->
+  <DrawingBrush x:Key="CW.Brush.WindowBackdrop" Stretch="Fill">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <GeometryDrawing>
+          <GeometryDrawing.Geometry><RectangleGeometry Rect="0,0,100,100"/></GeometryDrawing.Geometry>
+          <GeometryDrawing.Brush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+              <GradientStop Color="#FF0B0B0B" Offset="0"/><GradientStop Color="#FF111111" Offset="0.45"/><GradientStop Color="#FF060606" Offset="1"/>
+            </LinearGradientBrush>
+          </GeometryDrawing.Brush>
+        </GeometryDrawing>
+        <GeometryDrawing>
+          <GeometryDrawing.Geometry><RectangleGeometry Rect="0,0,100,100"/></GeometryDrawing.Geometry>
+          <GeometryDrawing.Brush>
+            <RadialGradientBrush Center="0,0" GradientOrigin="0,0" RadiusX="0.45" RadiusY="0.45">
+              <GradientStop Color="#38D4121F" Offset="0"/><GradientStop Color="#00D4121F" Offset="1"/>
+            </RadialGradientBrush>
+          </GeometryDrawing.Brush>
+        </GeometryDrawing>
+        <GeometryDrawing>
+          <GeometryDrawing.Geometry><RectangleGeometry Rect="0,0,100,100"/></GeometryDrawing.Geometry>
+          <GeometryDrawing.Brush>
+            <RadialGradientBrush Center="1,0" GradientOrigin="1,0" RadiusX="0.3" RadiusY="0.3">
+              <GradientStop Color="#0FFFFFFF" Offset="0"/><GradientStop Color="#00FFFFFF" Offset="1"/>
+            </RadialGradientBrush>
+          </GeometryDrawing.Brush>
+        </GeometryDrawing>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <!-- 34px 细网格纹理（叠在背景之上，建议用 OpacityMask 做向下渐隐） -->
+  <DrawingBrush x:Key="CW.Brush.Grid" TileMode="Tile" Viewport="0,0,34,34" ViewportUnits="Absolute" Stretch="None">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <GeometryDrawing Brush="#06FFFFFF"><GeometryDrawing.Geometry><RectangleGeometry Rect="0,0,1,34"/></GeometryDrawing.Geometry></GeometryDrawing>
+        <GeometryDrawing Brush="#05FFFFFF"><GeometryDrawing.Geometry><RectangleGeometry Rect="0,0,34,1"/></GeometryDrawing.Geometry></GeometryDrawing>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+
+  <!-- ———— 文字样式 ———— -->
+  <Style x:Key="CW.Text" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource CW.Font}"/>
+    <Setter Property="FontSize" Value="13"/>
+    <Setter Property="Foreground" Value="{StaticResource CW.Brush.Text}"/>
+    <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+  </Style>
+  <Style x:Key="CW.Text.PageTitle" TargetType="TextBlock" BasedOn="{StaticResource CW.Text}">
+    <Setter Property="FontSize" Value="26"/><Setter Property="FontWeight" Value="Bold"/>
+  </Style>
+  <Style x:Key="CW.Text.ModalTitle" TargetType="TextBlock" BasedOn="{StaticResource CW.Text}">
+    <Setter Property="FontSize" Value="18"/><Setter Property="FontWeight" Value="Bold"/>
+  </Style>
+  <Style x:Key="CW.Text.Eyebrow" TargetType="TextBlock" BasedOn="{StaticResource CW.Text}">
+    <Setter Property="FontSize" Value="12"/><Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="Foreground" Value="{StaticResource CW.Brush.Eyebrow}"/>
+    <Setter Property="Typography.Capitals" Value="AllSmallCaps"/>   <!-- 英文眉标大写；中文不受影响。字距 .08em 请用 CharacterSpacing（WinUI）或手动空格 -->
+    <Setter Property="Margin" Value="0,0,0,14"/>
+  </Style>
+  <Style x:Key="CW.Text.Muted" TargetType="TextBlock" BasedOn="{StaticResource CW.Text}">
+    <Setter Property="FontSize" Value="12.5"/><Setter Property="Foreground" Value="{StaticResource CW.Brush.Muted}"/>
+  </Style>
+  <Style x:Key="CW.Text.Faint" TargetType="TextBlock" BasedOn="{StaticResource CW.Text}">
+    <Setter Property="FontSize" Value="11.5"/><Setter Property="Foreground" Value="{StaticResource CW.Brush.Faint}"/>
+  </Style>
+  <Style x:Key="CW.Text.BigNum" TargetType="TextBlock" BasedOn="{StaticResource CW.Text}">
+    <Setter Property="FontFamily" Value="{StaticResource CW.Font.Num}"/>
+    <Setter Property="FontSize" Value="46"/><Setter Property="FontWeight" Value="Bold"/><Setter Property="FontStyle" Value="Italic"/>
+    <Setter Property="Foreground" Value="#73FF3748"/>   <!-- 无 text-stroke：用半透明亮红替代描边数字 -->
+  </Style>
+  <Style x:Key="CW.Text.Mono" TargetType="TextBlock" BasedOn="{StaticResource CW.Text}">
+    <Setter Property="FontFamily" Value="{StaticResource CW.Font.Mono}"/><Setter Property="FontSize" Value="12"/>
+    <Setter Property="Foreground" Value="{StaticResource CW.Brush.Muted}"/>
+  </Style>
+
+  <!-- ———— 面板 / 卡片（Border） ———— -->
+  <Style x:Key="CW.Panel" TargetType="Border">
+    <Setter Property="Background" Value="{StaticResource CW.Brush.Glass}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource CW.Brush.Line}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="{StaticResource CW.Radius.LG}"/>
+    <Setter Property="Padding" Value="20,18"/>
+  </Style>
+  <Style x:Key="CW.Card" TargetType="Border" BasedOn="{StaticResource CW.Panel}">
+    <Setter Property="Background" Value="#E6121212"/>
+    <Setter Property="CornerRadius" Value="{StaticResource CW.Radius.MD}"/>
+    <Setter Property="Padding" Value="18,14"/>
+    <Style.Triggers>
+      <Trigger Property="IsMouseOver" Value="True">
+        <Setter Property="BorderBrush" Value="{StaticResource CW.Brush.LineStrong}"/>
+      </Trigger>
+    </Style.Triggers>
+  </Style>
+  <Style x:Key="CW.Sidebar" TargetType="Border" BasedOn="{StaticResource CW.Panel}">
+    <Setter Property="CornerRadius" Value="{StaticResource CW.Radius.XL}"/>
+    <Setter Property="Padding" Value="14,18"/><Setter Property="Width" Value="224"/>
+  </Style>
+  <Style x:Key="CW.Popup" TargetType="Border">   <!-- 下拉 / 右键 / toast 实底 -->
+    <Setter Property="Background" Value="#F7101010"/>
+    <Setter Property="BorderBrush" Value="#1FFFFFFF"/><Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="{StaticResource CW.Radius.Card}"/><Setter Property="Padding" Value="6"/>
+    <Setter Property="Effect"><Setter.Value><DropShadowEffect Color="#000000" Opacity="0.55" BlurRadius="60" ShadowDepth="24" Direction="270"/></Setter.Value></Setter>
+  </Style>
+  <Style x:Key="CW.Modal" TargetType="Border" BasedOn="{StaticResource CW.Popup}">
+    <Setter Property="Background" Value="#F50E0E0E"/>
+    <Setter Property="CornerRadius" Value="{StaticResource CW.Radius.XL}"/><Setter Property="Padding" Value="28,26"/>
+    <Setter Property="Width" Value="440"/>
+  </Style>
+  <Style x:Key="CW.Empty" TargetType="Border">
+    <Setter Property="Background" Value="{StaticResource CW.Brush.PanelSoft}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource CW.Brush.LineStrong}"/><Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="{StaticResource CW.Radius.LG}"/><Setter Property="Padding" Value="20,46"/>
+  </Style>
+
+  <!-- ———— 按钮 ———— -->
+  <Style x:Key="CW.Button" TargetType="Button">
+    <Setter Property="FontFamily" Value="{StaticResource CW.Font}"/>
+    <Setter Property="FontSize" Value="13"/><Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="Foreground" Value="{StaticResource CW.Brush.White}"/>
+    <Setter Property="Background" Value="{StaticResource CW.Brush.Card}"/>
+    <Setter Property="BorderBrush" Value="#1FFFFFFF"/><Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="MinHeight" Value="38"/><Setter Property="Padding" Value="18,0"/>
+    <Setter Property="Cursor" Value="Hand"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Border x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{StaticResource CW.Radius.Pill}"
+                  Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="Bd" Property="Background" Value="{StaticResource CW.Brush.CardHover}"/>
+              <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource CW.Brush.LineStrong}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+              <Setter TargetName="Bd" Property="RenderTransform"><Setter.Value><TranslateTransform Y="1"/></Setter.Value></Setter>
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+              <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource CW.Brush.RedBorder}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.45"/></Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="CW.Button.Primary" TargetType="Button" BasedOn="{StaticResource CW.Button}">
+    <Setter Property="Background" Value="{StaticResource CW.Brush.RedGradient}"/>
+    <Setter Property="BorderBrush" Value="Transparent"/>
+    <Setter Property="Effect"><Setter.Value><DropShadowEffect Color="#D4121F" Opacity="0.28" BlurRadius="28" ShadowDepth="10" Direction="270"/></Setter.Value></Setter>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Border x:Name="Bd" Background="{TemplateBinding Background}" CornerRadius="{StaticResource CW.Radius.Pill}" Padding="{TemplateBinding Padding}">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Bd" Property="Opacity" Value="0.92"/></Trigger>
+            <Trigger Property="IsPressed" Value="True"><Setter TargetName="Bd" Property="RenderTransform"><Setter.Value><TranslateTransform Y="1"/></Setter.Value></Setter></Trigger>
+            <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.45"/></Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="CW.Button.Ghost" TargetType="Button" BasedOn="{StaticResource CW.Button}">
+    <Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/>
+    <Setter Property="Foreground" Value="{StaticResource CW.Brush.Muted}"/>
+    <Style.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter Property="Foreground" Value="{StaticResource CW.Brush.Text}"/></Trigger></Style.Triggers>
+  </Style>
+  <Style x:Key="CW.Button.Danger" TargetType="Button" BasedOn="{StaticResource CW.Button}">
+    <Setter Property="Background" Value="{StaticResource CW.Brush.RedDim}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource CW.Brush.RedBorderSoft}"/>
+    <Setter Property="Foreground" Value="{StaticResource CW.Brush.RedText}"/>
+  </Style>
+  <Style x:Key="CW.Button.Small" TargetType="Button" BasedOn="{StaticResource CW.Button}">
+    <Setter Property="MinHeight" Value="30"/><Setter Property="Padding" Value="12,0"/><Setter Property="FontSize" Value="12"/>
+  </Style>
+  <!-- 导航项（ToggleButton / RadioButton 均可套） -->
+  <Style x:Key="CW.NavItem" TargetType="RadioButton">
+    <Setter Property="FontFamily" Value="{StaticResource CW.Font}"/><Setter Property="FontSize" Value="13"/><Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="Foreground" Value="{StaticResource CW.Brush.Muted}"/><Setter Property="MinHeight" Value="40"/><Setter Property="Padding" Value="14,0"/>
+    <Setter Property="Cursor" Value="Hand"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="RadioButton">
+          <Border x:Name="Bd" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" CornerRadius="14" Padding="{TemplateBinding Padding}">
+            <ContentPresenter VerticalAlignment="Center"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="Bd" Property="Background" Value="{StaticResource CW.Brush.Card}"/>
+              <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource CW.Brush.Line}"/>
+              <Setter Property="Foreground" Value="{StaticResource CW.Brush.Text}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+              <Setter TargetName="Bd" Property="Background" Value="{StaticResource CW.Brush.NavActive}"/>
+              <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource CW.Brush.LineStrong}"/>
+              <Setter Property="Foreground" Value="{StaticResource CW.Brush.White}"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ———— 输入框 ———— -->
+  <Style x:Key="CW.TextBox" TargetType="TextBox">
+    <Setter Property="FontFamily" Value="{StaticResource CW.Font}"/><Setter Property="FontSize" Value="13"/>
+    <Setter Property="Foreground" Value="{StaticResource CW.Brush.White}"/>
+    <Setter Property="CaretBrush" Value="{StaticResource CW.Brush.RedBright}"/>
+    <Setter Property="SelectionBrush" Value="{StaticResource CW.Brush.Red}"/>
+    <Setter Property="Background" Value="{StaticResource CW.Brush.InputBg}"/>
+    <Setter Property="BorderBrush" Value="#1AFFFFFF"/><Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Padding" Value="14,9"/><Setter Property="MinHeight" Value="38"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="TextBox">
+          <Grid>
+            <Border x:Name="Halo" CornerRadius="17" BorderBrush="{StaticResource CW.Brush.RedHalo}" BorderThickness="3" Margin="-3" Opacity="0"/>
+            <Border x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{StaticResource CW.Radius.Card}" Padding="{TemplateBinding Padding}">
+              <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" Focusable="False"/>
+            </Border>
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+              <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource CW.Brush.RedBorder}"/>
+              <Setter TargetName="Halo" Property="Opacity" Value="1"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.7"/></Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ———— 标签（Border + TextBlock）———— -->
+  <Style x:Key="CW.Tag" TargetType="Border">
+    <Setter Property="Background" Value="{StaticResource CW.Brush.PanelSoft}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource CW.Brush.Line}"/><Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="13"/><Setter Property="MinHeight" Value="26"/><Setter Property="Padding" Value="11,0"/>
+    <Setter Property="TextBlock.FontSize" Value="11.5"/><Setter Property="TextBlock.FontWeight" Value="SemiBold"/>
+    <Setter Property="TextBlock.Foreground" Value="{StaticResource CW.Brush.Muted}"/>
+  </Style>
+  <Style x:Key="CW.Tag.Red" TargetType="Border" BasedOn="{StaticResource CW.Tag}">
+    <Setter Property="Background" Value="{StaticResource CW.Brush.RedFill}"/><Setter Property="BorderBrush" Value="{StaticResource CW.Brush.RedBorderSoft}"/>
+    <Setter Property="TextBlock.Foreground" Value="{StaticResource CW.Brush.RedText}"/>
+  </Style>
+  <Style x:Key="CW.Tag.Warn" TargetType="Border" BasedOn="{StaticResource CW.Tag}">
+    <Setter Property="Background" Value="#1FD9A13B"/><Setter Property="BorderBrush" Value="#59D9A13B"/>
+    <Setter Property="TextBlock.Foreground" Value="{StaticResource CW.Brush.Warn}"/>
+  </Style>
+  <Style x:Key="CW.Tag.Ok" TargetType="Border" BasedOn="{StaticResource CW.Tag}">
+    <Setter Property="Background" Value="#1A46C576"/><Setter Property="BorderBrush" Value="#4D46C576"/>
+    <Setter Property="TextBlock.Foreground" Value="{StaticResource CW.Brush.Ok}"/>
+  </Style>
+  <!-- 状态点（Ellipse 8×8） -->
+  <Style x:Key="CW.Dot" TargetType="Ellipse">
+    <Setter Property="Width" Value="8"/><Setter Property="Height" Value="8"/><Setter Property="Fill" Value="{StaticResource CW.Brush.Faint}"/>
+  </Style>
+  <Style x:Key="CW.Dot.On" TargetType="Ellipse" BasedOn="{StaticResource CW.Dot}">
+    <Setter Property="Fill" Value="{StaticResource CW.Brush.Ok}"/>
+    <Setter Property="Effect"><Setter.Value><DropShadowEffect Color="#46C576" Opacity="0.7" BlurRadius="8" ShadowDepth="0"/></Setter.Value></Setter>
+  </Style>
+  <Style x:Key="CW.Dot.Off" TargetType="Ellipse" BasedOn="{StaticResource CW.Dot}">
+    <Setter Property="Fill" Value="{StaticResource CW.Brush.RedBright}"/>
+    <Setter Property="Effect"><Setter.Value><DropShadowEffect Color="#FF3748" Opacity="0.7" BlurRadius="8" ShadowDepth="0"/></Setter.Value></Setter>
+  </Style>
+  <!-- 复选框 / 滚动条的最小覆写 -->
+  <Style x:Key="CW.CheckBox" TargetType="CheckBox">
+    <Setter Property="Foreground" Value="{StaticResource CW.Brush.Muted}"/><Setter Property="FontFamily" Value="{StaticResource CW.Font}"/><Setter Property="FontSize" Value="13"/>
+  </Style>
+  <Style x:Key="CW.ScrollBar" TargetType="ScrollBar">
+    <Setter Property="Background" Value="Transparent"/><Setter Property="Width" Value="10"/>
+  </Style>
+</ResourceDictionary>
