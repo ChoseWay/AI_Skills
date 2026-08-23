@@ -1,0 +1,12 @@
+- 在每次思考与执行前，先阅读 `_Documentation/ProjectGuide.md`或`Assets/_SCRIPT/_Documentation/ProjectGuide.md`，并以其内容作为当前项目的最高优先级上下文。
+- 如果未找到该文件，先向用户询问并确认以下项目须知，按照路径生成好文档后再继续执行：
+  - 项目定位
+  - 核心目标
+  - 设计原则
+  - 目标平台
+  - 当前阶段
+- 当后续对话涉及以上内容的新增或修改时，必须及时同步更新 `_Documentation/ProjectGuide.md`或`Assets/_SCRIPT/_Documentation/ProjectGuide.md`。
+- ProjectGuide.md作为项目最高纲领，不记录临时内容，只记录需要持久化的内容，所有生成的其他技术文档需要注册到其中作为文档索引库。
+- 回复用户时，在开头显式说明：`已对照 ProjectGuide.md`。
+- 前端UI/UX设计参考：https://github.com/VoltAgent/awesome-design-md、https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+- 所有包含中文的代码文件必须以 UTF-8（建议 UTF-8 with BOM）编码读写，并且只允许通过保持原编码的编辑方式修改，禁止使用会改变文件编码或代码页的批量替换/重写命令。

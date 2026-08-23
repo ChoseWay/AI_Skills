@@ -9,10 +9,15 @@ AI_Skills/
 ├─ claude/                 Claude Code 技能（每个子目录一个技能，必须含 SKILL.md）
 │  ├─ choseway-style/      千往红黑赛博科技风设计系统（跨平台：Web / WPF / Unity）
 │  └─ feishu-doc/          飞书云文档 API 读取
+│  └─ project-guide/       ProjectGuide 工作法 + 全局工作规则（agent 无关，可 CrossLink 给 Codex）
 ├─ codex/                  Codex 技能（同为 Agent Skills 标准：SKILL.md + 可选 agents/openai.yaml、scripts/、references/）
+├─ global/                 agent 全局规则文件的原文快照（不是技能，不会被链接）
+│  ├─ claude/CLAUDE.md     ← ~/.claude/CLAUDE.md
+│  └─ codex/AGENTS.md      ← ~/.codex/AGENTS.md
 ├─ scripts/
 │  ├─ link-skills.ps1      把仓库里的技能链接到 ~/.claude/skills 与 ~/.codex/skills（换机器 / 重装后执行一次）
-│  └─ adopt-skill.ps1      把已存在于 ~/.claude/skills 或 ~/.codex/skills 的技能「收编」进仓库并换成链接
+│  ├─ adopt-skill.ps1      把已存在于 ~/.claude/skills 或 ~/.codex/skills 的技能「收编」进仓库并换成链接
+│  └─ sync-global-rules.ps1  全局规则快照同步：-Pull 本机→仓库（改完规则后）/ -Push 仓库→本机（恢复）
 ├─ CATALOG.md              技能清单（名称 / 用途 / 触发 / 来源 / 适用 agent）—— 新增技能必须登记
 └─ README.md
 ```
@@ -30,11 +35,17 @@ AI_Skills/
 - **修改技能**：链接是透明的，在任一侧编辑都是改仓库里的文件，改完 `git commit` 即可。
 - **Claude 全局规则**（`~/.claude/CLAUDE.md`）里对技能的引用路径仍写 `~/.claude/skills/<name>`，不要写仓库绝对路径，保持链接层解耦。
 
+## 全局规则（CLAUDE.md / AGENTS.md）
+
+- 本机规则文件无法用 junction 链接（跨卷文件链接需管理员），所以走**快照同步**：改了 `~/.claude/CLAUDE.md` 或 `~/.codex/AGENTS.md` 之后跑 `scripts/sync-global-rules.ps1 -Pull` 再提交；新机器 `-Push` 写回。
+- 规则的方法论化版本在技能 `claude/project-guide/`（含 ProjectGuide 模板与全局规范细则），给任何 agent 读都能照做。
+
 ## 换机器 / 重装恢复
 
 ```powershell
 git clone https://github.com/ChoseWay/AI_Skills.git W:\Project\AI\AI_Skills
-pwsh -File W:\Project\AI\AI_Skills\scripts\link-skills.ps1        # 加 -WhatIf 先预览
+pwsh -File W:\Project\AI\AI_Skills\scripts\link-skills.ps1         # 加 -WhatIf 先预览
+pwsh -File W:\Project\AI\AI_Skills\scripts\sync-global-rules.ps1 -Push   # 恢复 CLAUDE.md / AGENTS.md
 ```
 
 脚本会为 `claude/*` 在 `~/.claude/skills/` 下、`codex/*` 在 `~/.codex/skills/` 下分别创建 junction；目标已存在且不是链接时会跳过并提示（避免覆盖你本机的新内容，此时用 adopt-skill.ps1 收编）。
