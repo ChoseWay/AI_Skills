@@ -3,3 +3,4 @@
 *.jpg binary
 *.svg text
 
+global/** -text
