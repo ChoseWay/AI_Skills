@@ -29,7 +29,7 @@ const MAP = {
   'folders': 'File/Folders.svg',
   'trash': 'Interface/Trash_Empty.svg',
   'trash-full': 'Interface/Trash_Full.svg',
-  'warning': 'Warning/Warning.svg',
+  'warning': 'Warning/Triangle_Warning.svg',
 };
 
 const entries = [];

@@ -35,7 +35,7 @@
 | download | Interface/Download | 下载/导出 ⬇ |
 | folders | File/Folders | 项目列表 ▤ |
 | trash / trash-full | Interface/Trash_* | 回收站 ↺ / 删除 🗑 |
-| warning | Warning/Warning | 警示 ⚠ |
+| warning | Warning/Triangle_Warning | 警示 ⚠ |
 
 ## 边界（第一期范围，2026-09-01 定）
 
