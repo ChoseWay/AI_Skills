@@ -34,6 +34,7 @@ description: 千往（ChoseWay）红黑赛博科技风 UI 设计系统（跨平�
 8. **交互反馈克制**：悬停 = 边框提亮到 16% 白 + 背景 4%→7% 白；卡片悬停上浮 `translateY(-3px)` + 深投影；过渡 0.15s（卡片 180ms）；焦点环 = 红边 + `0 0 0 3px rgba(212,18,31,.16)`。
 9. **动效有开关**：脉动 / 呼吸 / 流动纹理只给「需要被看见」的元素（急且重、今天线、定位闪烁），周期经 CSS 变量 `--fx-speed / --fx-glow` 可调，且 **`prefers-reduced-motion: reduce` 下必须降级为静态**。
 10. **控件全自绘**：不使用原生 `select / confirm / alert / prompt`；下拉、右键菜单、确认框、toast 全部是同一套深色玻璃浮层（`.dd-menu / .ctx-menu / .modal / .toast`），`dd-in` 0.12s 淡入下移 4px。
+11. **图标用 coolicons 线性描边**（导航 / 按钮等结构性图标），内联 SVG + `currentColor`，不用 emoji / Unicode 字符；映射与落地方式见 [icons/ICONS.md](icons/ICONS.md)。
 
 ## 禁止项
 
@@ -51,6 +52,7 @@ description: 千往（ChoseWay）红黑赛博科技风 UI 设计系统（跨平�
 - [tokens.json](tokens.json) —— **平台无关设计 token**（颜色 hex+rgba / 渐变 / 圆角 / 阴影 / 模糊 / 网格 / 字体 / 尺寸 / 动效 / 语义 / z-index / 断点），所有平台移植的唯一取值源。
 - [PLATFORMS.md](PLATFORMS.md) —— **跨平台适配指南**：平台无关硬规则、能力降级矩阵（模糊 / 渐变 / 圆角 / 辉光 / 纹理 / 动画 / 描边数字 / 自绘弹层 × Web / WPF / USS / IMGUI / Qt / TUI）、各平台要点、新平台移植流程。
 - [theme.css](theme.css) —— Web / Tauri / Electron 可直接引入的主题样式（变量 + 基础控件），类名与源项目一致。
+- [icons/ICONS.md](icons/ICONS.md) —— **统一图标体系**：coolicons（CC BY 4.0）语义映射表、现役 SVG 源文件（`icons/*.svg`）、`Ico` 组件落地方式与生成脚本 `icons/gen-icons.mjs`（同时覆盖控制台与报价平台两份 Icon.tsx）。
 - [wpf/ChoseWayTheme.xaml](wpf/ChoseWayTheme.xaml) —— WPF（WinUI / Avalonia 微调可用）ResourceDictionary：全部颜色与画刷（含红渐变 / 玻璃 / 窗口背景 DrawingBrush / 34px 网格）、文字样式、Panel / Card / Popup / Modal、Button（默认 / Primary / Ghost / Danger / Small）、NavItem、TextBox（红焦点环）、Tag、状态点。
 - [unity/ChoseWayTheme.uss](unity/ChoseWayTheme.uss) —— Unity UI Toolkit 样式（EditorWindow / 运行时通用）：`.cw-root` 变量 + 面板 / 卡片 / 按钮 / 输入 / 标签 / 胶囊 / 分段 / 状态点 / 象限色条 / 进度 / 表格 / 滚动条覆写。
 - [unity/ChoseWayEditorTheme.cs](unity/ChoseWayEditorTheme.cs) —— Unity IMGUI 编辑器助手（放 `Editor/`）：`CW.Colors` / `CW.Styles` / `FillWindowBackground`（底色 + 红晕 + 网格）/ `BeginPanel` / `Button(kind)` / `TextField` / `Tag` / `StatusDot` / `QuadBar`（脉动）/ `Progress`，圆角用 SDF 生成的 9-slice 贴图。
