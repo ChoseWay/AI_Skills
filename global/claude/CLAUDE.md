@@ -17,6 +17,7 @@
 ## 设计参考
 
 - 前端 UI/UX 设计参考：https://github.com/VoltAgent/awesome-design-md 、https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+- **图标库首选 coolicons**：https://github.com/krystonschwarze/coolicons （440+ 线性描边 SVG 图标，CC BY 4.0 可商用，另有 PNG / 网页字体 / SVG Sprite / Figma 格式，从 GitHub Releases 下载）。项目设计中需要线性风格图标素材时优先到这里找；落地方式建议内联 SVG（stroke 用 `currentColor`，随主题变色），与千往红黑风格搭配良好。
 - **千往 / ChoseWay 风格（红黑赛博科技风）**：用户提到「choseway 风格 / 千往风格 / 红黑风 / 赛博科技风 / 与 ChoseWayManager、报价单工具、AssetsViewer 统一视觉」时，一律调用全局技能 `choseway-style`（`~/.claude/skills/choseway-style`：`SKILL.md` 速查 + `DESIGN.md` 完整规范 + `tokens.json` 平台无关 token + `PLATFORMS.md` 跨平台降级指南 + `theme.css` / `wpf/*.xaml` / `unity/*.uss|*.cs` 现成实现），按其 token / 配方 / 组件 / 动效 / 响应式规则落地，不要凭印象另起一套配色。**不限于 Web**：WPF / WinUI 窗口、Unity 编辑器窗口（UI Toolkit / IMGUI）、Tauri / Electron 客户端、设计稿都按该技能套用，取值一律以 tokens.json 为准。源头实现为 `W:\Project\AI\AI_ChoseWayManager\web\src\styles.css`；该设计系统有变更时同步更新技能文件。
 
 ## 飞书云文档读取（全局）
