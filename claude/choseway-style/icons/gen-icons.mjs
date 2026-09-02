@@ -57,6 +57,9 @@ const MAP = {
   'shrink': 'Arrow/Shrink.svg',
   'sub-right': 'Arrow/Arrow_Sub_Down_Right.svg',
   'external-link': 'Interface/External_Link.svg',
+  // ———— 第三期（报价平台移动端：行菜单 / 重做；撤销复用 'return'） ————
+  'more': 'Menu/More_Horizontal.svg',
+  'redo': 'Arrow/Arrow_Undo_Up_Right.svg',
 };
 
 const entries = [];
