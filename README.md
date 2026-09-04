@@ -24,7 +24,7 @@ AI_Skills/
 ```
 
 - **按 agent 分一级目录**（`claude/`、`codex/`），二级目录名 = 技能名（kebab-case，与 `SKILL.md` 的 `name` 一致）。
-- 两边都用 [Agent Skills](https://agentskills.io) 的 `SKILL.md` 格式，一个技能若两边通用，**只保留一份**放在首次编写它的 agent 目录下，另一边用链接脚本的 `-CrossLink` 再链一次（见 CATALOG 的「适用」列）。
+- 两边都用 [Agent Skills](https://agentskills.io) 的 `SKILL.md` 格式，一个技能若两边通用，**只保留一份**放在首次编写它的 agent 目录下，另一边用链接脚本的 `-ToCodex <名1>,<名2>` 再链一次（见 CATALOG 的「适用」列；新机器上手见 [ONBOARDING-CODEX.md](ONBOARDING-CODEX.md)）。
 - 只收**自制或深度定制**的技能；官方内置（Codex `.system/`、`doc/pdf/playwright` 等带 LICENSE 的官方包）和第三方整包安装的技能不入库，需要时重新安装即可。
 - 严禁提交凭证：密钥文件统一放 `W:\Project\AI\_Config\`（不在仓库内），技能里只写路径；每次提交前跑 `scripts/scan-secrets.ps1`（命中退出码 2）。仓库保持 GitHub **私有**——内容含内网 IP / 主机名 / SSH 用户名等基础设施标识，不可公开。
 - `SKILL.md` 必须是 **UTF-8 无 BOM**（带 BOM 会让 Claude Code 解析不到 frontmatter，技能描述显示为 `---`）；其他 .md / .css / .cs 带不带都行。
@@ -46,6 +46,7 @@ AI_Skills/
 ```powershell
 git clone https://github.com/ChoseWay/AI_Skills.git W:\Project\AI\AI_Skills
 pwsh -File W:\Project\AI\AI_Skills\scripts\link-skills.ps1         # 加 -WhatIf 先预览
+pwsh -File W:\Project\AI\AI_Skills\scripts\link-skills.ps1 -ToCodex choseway-style,feishu-doc,project-guide   # 通用技能也链给 Codex
 pwsh -File W:\Project\AI\AI_Skills\scripts\sync-global-rules.ps1 -Push   # 恢复 CLAUDE.md / AGENTS.md
 ```
 

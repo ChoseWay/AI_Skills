@@ -6,18 +6,24 @@
   - 目标已是指向本仓库同一技能的链接 → 跳过。
   - 目标是指向别处的链接 → 重新指向本仓库（先删旧链接）。
   - 目标是普通目录（本机有未入库内容）→ 跳过并提示用 adopt-skill.ps1 收编。
-  - -CrossLink：把 claude/ 下标记为通用的技能也链到 codex（或反之）。用法：-CrossLink @{ 'choseway-style' = 'codex' }
+  - -CrossLink：把 claude/ 下标记为通用的技能也链到 codex（或反之）。用法：-CrossLink @{ 'choseway-style' = 'codex' }（仅限在 pwsh 会话内用 & 调用；pwsh -File 传不了哈希表）
+  - -ToCodex：把 claude/ 下的技能链到 codex，逗号分隔技能名，pwsh -File 也能用。用法：-ToCodex choseway-style,feishu-doc,project-guide
 .EXAMPLE
   pwsh -File scripts/link-skills.ps1 -WhatIf
   pwsh -File scripts/link-skills.ps1
+  pwsh -File scripts/link-skills.ps1 -ToCodex choseway-style,feishu-doc,project-guide
 #>
 [CmdletBinding(SupportsShouldProcess)]
 param(
   [string]$ClaudeSkillsDir = (Join-Path $env:USERPROFILE '.claude\skills'),
   [string]$CodexSkillsDir  = (Join-Path $env:USERPROFILE '.codex\skills'),
-  [hashtable]$CrossLink = @{}
+  [hashtable]$CrossLink = @{},
+  [string[]]$ToCodex = @()
 )
 $ErrorActionPreference = 'Stop'
+# -ToCodex 经 pwsh -File 传入时是一个带逗号的字符串，这里统一拆开并并入 CrossLink
+$CrossLink = @{} + $CrossLink
+foreach ($n in ($ToCodex -join ',').Split(',', [StringSplitOptions]::RemoveEmptyEntries)) { $CrossLink[$n.Trim()] = 'codex' }
 $repo = Split-Path $PSScriptRoot -Parent
 
 function Link-One([string]$src, [string]$dst) {
