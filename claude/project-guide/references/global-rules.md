@@ -7,6 +7,7 @@
 见 SKILL.md 第一至三节。补充：
 - 多个仓库同属一个产品线时，每个仓库各自一份 ProjectGuide；跨仓库契约（如 SSO 共享 Cookie）在两边都写明「对外契约，修改不得破坏」。
 - ProjectGuide 不放代码片段长文，放「结论 + 位置指针」；细节进独立设计文档并登记索引。
+- **三文件分工**：ProjectGuide（纲领，≤ 约 150 行 / 20KB）、`Modules.md`（功能模块契约级细节，编号与核心目标一一对应）、`Changelog.md`（逐条阶段 / 版本记录，按月分组）。ProjectGuide「核心目标」每条 ≤ 3 行只留定位与契约，「当前阶段」只留状态摘要 + 近期里程碑 + 待办 + 迭代规范；需要细节时按索引读对应文档，不把细节搬回 ProjectGuide。新增模块 → Modules.md 加节 + ProjectGuide 加一行；每次发布 → Changelog.md 加条 + ProjectGuide 状态摘要更新。
 - 设计评审类文档标注状态（评审中 / 已定稿 / 已实现），实现后回写「已实现于 …」。
 
 ## 2. 输出规范

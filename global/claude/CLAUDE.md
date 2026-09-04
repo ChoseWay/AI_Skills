@@ -11,6 +11,7 @@
   - 当前阶段
 - 当后续对话涉及以上内容的新增或修改时，必须及时同步更新 `_Documentation/ProjectGuide.md` 或 `Assets/_SCRIPT/_Documentation/ProjectGuide.md`。
 - ProjectGuide.md 作为项目最高纲领，不记录临时内容，只记录需要持久化的内容，所有生成的其他技术文档需要注册到其中作为文档索引库。
+- **保持纲领性与简洁**：ProjectGuide 每条只写「一行结论 + 指针」，不堆细节。功能模块的契约级详细说明单开 `_Documentation/Modules.md`（编号与核心目标一一对应；大模块另有各自设计文档），逐条版本 / 阶段更新记录单开 `_Documentation/Changelog.md`（按月分组），两者都登记进文档索引。ProjectGuide「核心目标」每条 ≤ 3 行，只留一句话定位 + 不得破坏的契约；「当前阶段」只留状态摘要 + 近期里程碑 + 待办 + 迭代规范。需要细节时按索引再去读对应文档，不把细节搬回 ProjectGuide。全文超过约 150 行或 20KB 即拆分。新增模块 → Modules.md 加一节 + ProjectGuide 核心目标加一行；每次发布 → Changelog.md 加一条 + ProjectGuide 状态摘要更新。
 - 回复用户时，在开头显式说明：`已对照 ProjectGuide.md`。
 - 新建 / 补建 ProjectGuide、初始化新项目文档体系、检查项目合规、或要把这套工作规范讲给另一个 agent / 新机器时，调用全局技能 `project-guide`（含 ProjectGuide 模板、阶段记录写法、全局规范细则与合规自检）。本文件是规则原文，技能是其方法论化版本；本文件修改后运行 `W:\Project\AI\AI_Skills\scripts\sync-global-rules.ps1 -Pull` 并提交，保持仓库快照同步。
 
